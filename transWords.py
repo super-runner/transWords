@@ -21,6 +21,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print ("Chinese index:%d English index: %d" % (len(self.ChineseDoclist), len(self.englishDoclist)))
         
         self.pushButton_submit.clicked.connect(self.submitButtonAction)
+        #self.pushButton_submit.returnPressed.connect(self.onClick)
         self.pushButton_Exit.clicked.connect(self.close)
         self.pushButton_Prev.clicked.connect(self.preButtonAction)
         self.pushButton_Next.clicked.connect(self.nextButtonAction)
@@ -99,6 +100,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         num = self.cfg.getDocLineNum(Lang.English)
         if num > 0:
             self.cfg.setDocLineNum(num-1, Lang.English)
+        self.plainTextEdit_manualEnter.clear()
         self.plainTextEdit_English.hide()
         self.lineEdit_English_Line_Number.setText(str(self.cfg.getDocLineNum(Lang.English)))
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
@@ -107,6 +109,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         num = self.cfg.getDocLineNum(Lang.English) + 1
         if num < len(self.englishDoclist):
             self.cfg.setDocLineNum(num, Lang.English)
+        self.plainTextEdit_manualEnter.clear()
         self.plainTextEdit_English.hide()
         self.lineEdit_English_Line_Number.setText(str(self.cfg.getDocLineNum(Lang.English)))
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])

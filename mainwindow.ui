@@ -23,6 +23,9 @@
       <height>531</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
@@ -50,6 +53,9 @@
       <property name="mouseTracking">
        <bool>true</bool>
       </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QPlainTextEdit" name="plainTextEdit_English">
       <property name="geometry">
@@ -64,6 +70,9 @@
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>true</bool>
@@ -92,6 +101,9 @@
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
       <property name="autoFillBackground">
        <bool>true</bool>
       </property>
@@ -117,6 +129,9 @@
       <property name="text">
        <string>Submit</string>
       </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_Prev">
       <property name="geometry">
@@ -127,8 +142,14 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
       <property name="text">
        <string>Pre</string>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_Next">
@@ -142,6 +163,9 @@
       </property>
       <property name="text">
        <string>Next</string>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPlainTextEdit" name="plainTextEdit_CN_line">
@@ -157,6 +181,9 @@
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="autoFillBackground">
        <bool>true</bool>
@@ -205,6 +232,9 @@
         <height>21</height>
        </rect>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_openChineseText">
       <property name="geometry">
@@ -214,6 +244,9 @@
         <width>75</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
       </property>
       <property name="text">
        <string>Open</string>
@@ -227,6 +260,9 @@
         <width>371</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
       </property>
      </widget>
      <widget class="QLabel" name="label_English_File">
@@ -257,6 +293,9 @@
         <width>75</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
       </property>
       <property name="text">
        <string>Open</string>
@@ -291,6 +330,9 @@
         <height>20</height>
        </rect>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
       <property name="inputMethodHints">
        <set>Qt::ImhDigitsOnly</set>
       </property>
@@ -306,8 +348,14 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Exit</string>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -326,15 +374,13 @@
  <tabstops>
   <tabstop>plainTextEdit_manualEnter</tabstop>
   <tabstop>pushButton_submit</tabstop>
-  <tabstop>pushButton_Prev</tabstop>
-  <tabstop>pushButton_Exit</tabstop>
-  <tabstop>plainTextEdit_English</tabstop>
-  <tabstop>plainTextEdit_Chinese</tabstop>
-  <tabstop>tabWidget</tabstop>
+  <tabstop>pushButton_Next</tabstop>
   <tabstop>lineEdit_Chinese_File</tabstop>
   <tabstop>pushButton_openChineseText</tabstop>
   <tabstop>lineEdit_English_File</tabstop>
   <tabstop>pushButton_openEnglishText</tabstop>
+  <tabstop>pushButton_Prev</tabstop>
+  <tabstop>lineEdit_English_Line_Number</tabstop>
  </tabstops>
  <resources/>
  <connections/>
