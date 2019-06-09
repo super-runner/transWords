@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>853</width>
-    <height>737</height>
+    <width>926</width>
+    <height>662</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,25 +19,33 @@
      <rect>
       <x>50</x>
       <y>50</y>
-      <width>741</width>
-      <height>501</height>
+      <width>851</width>
+      <height>531</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="Config">
+    <widget class="QWidget" name="Practice">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Practise</string>
      </attribute>
      <widget class="QPlainTextEdit" name="plainTextEdit_manualEnter">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>300</y>
-        <width>621</width>
-        <height>71</height>
+        <y>410</y>
+        <width>751</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="mouseTracking">
        <bool>true</bool>
@@ -47,10 +55,15 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>390</y>
-        <width>621</width>
-        <height>61</height>
+        <y>460</y>
+        <width>751</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="autoFillBackground">
        <bool>true</bool>
@@ -65,14 +78,19 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit_source">
+     <widget class="QPlainTextEdit" name="plainTextEdit_Chinese">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>621</width>
-        <height>281</height>
+        <width>751</width>
+        <height>361</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="autoFillBackground">
        <bool>true</bool>
@@ -90,8 +108,8 @@
      <widget class="QPushButton" name="pushButton_submit">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>300</y>
+        <x>760</x>
+        <y>380</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -100,11 +118,24 @@
        <string>Submit</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_Prev">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>280</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pre</string>
+      </property>
+     </widget>
      <widget class="QPushButton" name="pushButton_Next">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>350</y>
+        <x>760</x>
+        <y>330</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -113,23 +144,37 @@
        <string>Next</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_Exit">
+     <widget class="QPlainTextEdit" name="plainTextEdit_CN_line">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>430</y>
-        <width>75</width>
-        <height>23</height>
+        <x>0</x>
+        <y>370</y>
+        <width>751</width>
+        <height>31</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Exit</string>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="locale">
+       <locale language="English" country="UnitedStates"/>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="Content">
+    <widget class="QWidget" name="Config">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>Config</string>
      </attribute>
      <widget class="QLabel" name="label_Chinese_File">
       <property name="geometry">
@@ -151,23 +196,10 @@
        <string>Chinese Text File</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>100</y>
-        <width>81</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="lineEdit_Chinese_File">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>170</x>
         <y>60</y>
         <width>371</width>
         <height>21</height>
@@ -177,7 +209,7 @@
      <widget class="QPushButton" name="pushButton_openChineseText">
       <property name="geometry">
        <rect>
-        <x>520</x>
+        <x>550</x>
         <y>60</y>
         <width>75</width>
         <height>23</height>
@@ -190,8 +222,8 @@
      <widget class="QLineEdit" name="lineEdit_English_File">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>100</y>
+        <x>170</x>
+        <y>130</y>
         <width>371</width>
         <height>21</height>
        </rect>
@@ -201,7 +233,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>90</y>
+        <y>120</y>
         <width>111</width>
         <height>31</height>
        </rect>
@@ -220,8 +252,8 @@
      <widget class="QPushButton" name="pushButton_openEnglishText">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>100</y>
+        <x>550</x>
+        <y>130</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -230,7 +262,53 @@
        <string>Open</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_English_Line_Number">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>English Line Number</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_English_Line_Number">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>190</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+     </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Exit">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>590</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -238,7 +316,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>853</width>
+     <width>926</width>
      <height>21</height>
     </rect>
    </property>
@@ -248,10 +326,10 @@
  <tabstops>
   <tabstop>plainTextEdit_manualEnter</tabstop>
   <tabstop>pushButton_submit</tabstop>
-  <tabstop>pushButton_Next</tabstop>
+  <tabstop>pushButton_Prev</tabstop>
   <tabstop>pushButton_Exit</tabstop>
   <tabstop>plainTextEdit_English</tabstop>
-  <tabstop>plainTextEdit_source</tabstop>
+  <tabstop>plainTextEdit_Chinese</tabstop>
   <tabstop>tabWidget</tabstop>
   <tabstop>lineEdit_Chinese_File</tabstop>
   <tabstop>pushButton_openChineseText</tabstop>
@@ -259,70 +337,5 @@
   <tabstop>pushButton_openEnglishText</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushButton_Exit</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>719</x>
-     <y>534</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>418</x>
-     <y>346</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_Next</sender>
-   <signal>clicked()</signal>
-   <receiver>plainTextEdit_English</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>741</x>
-     <y>454</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>651</x>
-     <y>504</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_submit</sender>
-   <signal>clicked()</signal>
-   <receiver>plainTextEdit_English</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>701</x>
-     <y>400</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>642</x>
-     <y>492</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_Next</sender>
-   <signal>clicked()</signal>
-   <receiver>plainTextEdit_English</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>721</x>
-     <y>460</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>652</x>
-     <y>515</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
