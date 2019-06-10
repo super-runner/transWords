@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="toolTip">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
@@ -27,10 +30,10 @@
      <enum>Qt::ClickFocus</enum>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Practice">
      <attribute name="title">
@@ -191,11 +194,50 @@
       <property name="locale">
        <locale language="English" country="UnitedStates"/>
       </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
       <property name="undoRedoEnabled">
        <bool>false</bool>
       </property>
       <property name="readOnly">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_English_Line_Number">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>210</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string> Go to Line:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_English_Line_Number">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>240</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
       </property>
      </widget>
     </widget>
@@ -301,42 +343,6 @@
        <string>Open</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_English_Line_Number">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>180</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>English Line Number</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_English_Line_Number">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>190</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
-      </property>
-      <property name="inputMethodHints">
-       <set>Qt::ImhDigitsOnly</set>
-      </property>
-     </widget>
     </widget>
    </widget>
    <widget class="QPushButton" name="pushButton_Exit">
@@ -380,7 +386,6 @@
   <tabstop>lineEdit_English_File</tabstop>
   <tabstop>pushButton_openEnglishText</tabstop>
   <tabstop>pushButton_Prev</tabstop>
-  <tabstop>lineEdit_English_Line_Number</tabstop>
  </tabstops>
  <resources/>
  <connections/>

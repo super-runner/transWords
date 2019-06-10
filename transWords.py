@@ -63,7 +63,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if not self.cfg.getDocPath(lang):
             text = ("Chinese" if lang==Lang.Chinese else "English") + " file path is not configured!"
         elif os.path.isfile(self.cfg.getDocPath(lang)):
-            text = open(self.cfg.getDocPath(lang), encoding='utf-8').read()
+            #text = open(self.cfg.getDocPath(lang), encoding='utf-8').read()
+            text = ''
+            i = 0
+            for line in self.ChineseDoclist:
+                text += str(i).zfill(3) + ' - ' + line + '\n'
+                i = i + 1
         else:
             text = "File \"" + self.cfg.getDocPath(lang) + "\" doesn't exist!"
         
@@ -88,9 +93,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             else:
                 repaint = False
         self.cfg.setDocLineNum(n, Lang.English)
+        self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
         if repaint:
             self.lineEdit_English_Line_Number.setText('' if n==0 else str(n))
-            self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
+
         
     def submitButtonAction(self):
         self.plainTextEdit_English.setPlainText(self.englishDoclist[self.cfg.getDocLineNum(Lang.English)])
@@ -113,6 +119,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.plainTextEdit_English.hide()
         self.lineEdit_English_Line_Number.setText(str(self.cfg.getDocLineNum(Lang.English)))
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
+        self.plainTextEdit_manualEnter.setFocus(1)
 
     def loadDocToList(self, lang): 
         if os.path.isfile(self.cfg.getDocPath(lang)):
