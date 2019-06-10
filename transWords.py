@@ -99,8 +99,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
     def submitButtonAction(self):
-        self.plainTextEdit_English.setPlainText(self.englishDoclist[self.cfg.getDocLineNum(Lang.English)])
-        self.plainTextEdit_English.show()
+        if self.plainTextEdit_English.isVisible():
+            self.plainTextEdit_manualEnter.clear()
+            self.plainTextEdit_English.hide()
+            self.plainTextEdit_manualEnter.setFocus(1)
+        else:
+            self.plainTextEdit_English.setPlainText(self.englishDoclist[self.cfg.getDocLineNum(Lang.English)])
+            self.plainTextEdit_English.show()
 
     def preButtonAction(self):
         num = self.cfg.getDocLineNum(Lang.English)
