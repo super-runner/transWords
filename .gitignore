@@ -16,3 +16,6 @@ build/transWords/warn-transWords.txt
 build/transWords/xref-transWords.html
 transWords.spec
 dist/transWords.exe
+transWords.exe
+reform/entire_text_of_the_book_revised_Chinese.txt
+reform/entire_text_of_the_book_revised.txt

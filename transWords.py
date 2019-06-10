@@ -11,6 +11,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
         self.setupUi(self)
         self.plainTextEdit_English.hide()
+        self.setFixedSize(self.size())
         
         # read config file
         self.cfg = ConfigOperation()
@@ -21,7 +22,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print ("Chinese index:%d English index: %d" % (len(self.ChineseDoclist), len(self.englishDoclist)))
         
         self.pushButton_submit.clicked.connect(self.submitButtonAction)
-        #self.pushButton_submit.returnPressed.connect(self.onClick)
         self.pushButton_Exit.clicked.connect(self.close)
         self.pushButton_Prev.clicked.connect(self.preButtonAction)
         self.pushButton_Next.clicked.connect(self.nextButtonAction)
