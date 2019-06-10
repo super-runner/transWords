@@ -3,3 +3,16 @@ __pycache__/ConfigOperation.cpython-37.pyc
 __pycache__/MainWindow.cpython-37.pyc
 __pycache__/TwCommon.cpython-37.pyc
 config.json
+__pycache__/transWords.cpython-37.pyc
+build/transWords/Analysis-00.toc
+build/transWords/base_library.zip
+build/transWords/EXE-00.toc
+build/transWords/PKG-00.pkg
+build/transWords/PKG-00.toc
+build/transWords/PYZ-00.pyz
+build/transWords/PYZ-00.toc
+build/transWords/transWords.exe.manifest
+build/transWords/warn-transWords.txt
+build/transWords/xref-transWords.html
+transWords.spec
+dist/transWords.exe
