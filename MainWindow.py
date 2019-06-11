@@ -165,15 +165,15 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "TransBuddy"))
         self.pushButton_submit.setText(_translate("MainWindow", "Submit"))
         self.pushButton_Prev.setText(_translate("MainWindow", "Pre"))
         self.pushButton_Next.setText(_translate("MainWindow", "Next"))
         self.label_English_Line_Number.setText(_translate("MainWindow", " Go to Line:"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Practice), _translate("MainWindow", "Practise"))
-        self.label_Chinese_File.setText(_translate("MainWindow", "Chinese Text File"))
+        self.label_Chinese_File.setText(_translate("MainWindow", "Translate From"))
         self.pushButton_openChineseText.setText(_translate("MainWindow", "Open"))
-        self.label_English_File.setText(_translate("MainWindow", "English Text File"))
+        self.label_English_File.setText(_translate("MainWindow", "Translate To"))
         self.pushButton_openEnglishText.setText(_translate("MainWindow", "Open"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Config), _translate("MainWindow", "Config"))
         self.pushButton_Exit.setText(_translate("MainWindow", "Exit"))

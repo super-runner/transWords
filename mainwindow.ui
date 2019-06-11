@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>TransBuddy</string>
   </property>
   <property name="toolTip">
    <string notr="true"/>
@@ -277,7 +277,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Chinese Text File</string>
+       <string>Translate From</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_Chinese_File">
@@ -339,7 +339,7 @@
        </font>
       </property>
       <property name="text">
-       <string>English Text File</string>
+       <string>Translate To</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_openEnglishText">
