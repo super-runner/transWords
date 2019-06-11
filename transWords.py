@@ -31,6 +31,23 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit_English_Line_Number.setText(str(self.cfg.getDocLineNum(Lang.English)))
         self.lineEdit_Chinese_File.setText(self.cfg.getDocPath(Lang.Chinese))
         self.lineEdit_English_File.setText(self.cfg.getDocPath(Lang.English))
+        self.plainTextEdit_Chinese.setStyleSheet(
+        """QPlainTextEdit {background-color: #333;
+                           color: #00FF00;
+                           font-family: Courier;}""")
+        self.plainTextEdit_CN_line.setStyleSheet(
+        """QPlainTextEdit {background-color: #333;
+                           color: #00FF00;
+                           font-family: Courier;}""")
+        self.plainTextEdit_manualEnter.setStyleSheet(
+        """QPlainTextEdit {background-color: #333;
+                           color: #00FF00;
+                           font-family: Courier;}""")
+        self.plainTextEdit_English.setStyleSheet(
+        """QPlainTextEdit {background-color: #333;
+                           color: #00FF00;
+                           font-family: Courier;}""") #text-decoration: underline;
+        
         
         self.displayWindow(Lang.Chinese)
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
@@ -63,12 +80,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if not self.cfg.getDocPath(lang):
             text = ("Chinese" if lang==Lang.Chinese else "English") + " file path is not configured!"
         elif os.path.isfile(self.cfg.getDocPath(lang)):
-            #text = open(self.cfg.getDocPath(lang), encoding='utf-8').read()
             text = ''
-            i = 0
             for line in self.ChineseDoclist:
-                text += str(i).zfill(3) + ' - ' + line + '\n'
-                i = i + 1
+                text += line
+            #text = ''
+            #for i in range(self.cfg.getDocLineNum(lang), self.cfg.getDocLineNum(lang)+20):
+            #    text += self.ChineseDoclist[i]
+            
         else:
             text = "File \"" + self.cfg.getDocPath(lang) + "\" doesn't exist!"
         
@@ -131,6 +149,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             with open(self.cfg.getDocPath(lang), encoding='utf-8') as f:
                 lines = f.readlines()
             lines = [x.strip() for x in lines]
+            
+            if lang == Lang.Chinese:
+                i = 0
+                for line in lines:
+                    lines[i] = str(i).zfill(3) + ' - ' + line + '\n'
+                    i = i + 1
+
         else:
             lines = ['']
         return lines
