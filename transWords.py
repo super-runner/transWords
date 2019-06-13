@@ -120,17 +120,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def manualEnterAction(self):
         text = self.plainTextEdit_manualEnter.toPlainText()
-        if len(text) > 0:
-            if text[len(text)-1] == '\n':
-                self.plainTextEdit_manualEnter.setPlainText(text.strip())
-                self.plainTextEdit_manualEnter.moveCursor(QTextCursor.End, QTextCursor.MoveAnchor);
-                self.submitButtonAction()
-                #if self.plainTextEdit_English.isVisible():
-                #
-                #else:
+        if '\n' in text:
+            text = text.replace('\n', '')
+            self.plainTextEdit_manualEnter.setPlainText(text)
+            self.plainTextEdit_manualEnter.moveCursor(QTextCursor.End, QTextCursor.MoveAnchor);
+            self.submitButtonAction()
 
-
-    def submitButtonAction(self):
+    # Only reason to keep this function is for "submit" button which may be added back to ui.
+    def submitButtonAction(self): 
         if self.plainTextEdit_English.isVisible():
             self.plainTextEdit_manualEnter.clear()
             self.plainTextEdit_manualEnter.setFocus(1)
