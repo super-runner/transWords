@@ -135,22 +135,6 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_submit">
-      <property name="geometry">
-       <rect>
-        <x>830</x>
-        <y>380</y>
-        <width>50</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Submit</string>
-      </property>
-      <property name="autoDefault">
-       <bool>true</bool>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_Prev">
       <property name="geometry">
        <rect>
@@ -161,7 +145,7 @@
        </rect>
       </property>
       <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
+       <enum>Qt::TabFocus</enum>
       </property>
       <property name="text">
        <string>Pre</string>
@@ -419,7 +403,6 @@
  </widget>
  <tabstops>
   <tabstop>plainTextEdit_manualEnter</tabstop>
-  <tabstop>pushButton_submit</tabstop>
   <tabstop>pushButton_Next</tabstop>
   <tabstop>lineEdit_Chinese_File</tabstop>
   <tabstop>pushButton_openChineseText</tabstop>

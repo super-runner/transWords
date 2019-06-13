@@ -5,6 +5,8 @@ from PyQt5 import QtWidgets, uic
 from MainWindow import Ui_MainWindow
 from TwCommon import Lang
 from ConfigOperation import ConfigOperation
+from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QTextCursor
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, obj=None, **kwargs):
@@ -12,6 +14,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.plainTextEdit_English.hide()
         self.setFixedSize(self.size())
+        self.setWindowIcon(QIcon('Canada.ico'))   
         
         # read config file
         self.cfg = ConfigOperation()
@@ -21,7 +24,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.englishDoclist = self.loadDocToList(Lang.English)
         #print ("Chinese index:%d English index: %d" % (len(self.ChineseDoclist), len(self.englishDoclist)))
         
-        self.pushButton_submit.clicked.connect(self.submitButtonAction)
+        self.plainTextEdit_manualEnter.textChanged.connect(self.manualEnterAction)
+        #self.pushButton_submit.clicked.connect(self.submitButtonAction)
         self.pushButton_Exit.clicked.connect(self.close)
         self.pushButton_Prev.clicked.connect(self.preButtonAction)
         self.pushButton_Next.clicked.connect(self.nextButtonAction)
@@ -32,26 +36,25 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit_Chinese_File.setText(self.cfg.getDocPath(Lang.Chinese))
         self.lineEdit_English_File.setText(self.cfg.getDocPath(Lang.English))
         self.plainTextEdit_Chinese.setStyleSheet(
-        """QPlainTextEdit {background-color: #333;
-                           color: #00FF00;
+        """QPlainTextEdit {background-color: #CCFFE5;
+                           color: #404040;
                            font-family: Courier;}""")
         self.plainTextEdit_CN_line.setStyleSheet(
-        """QPlainTextEdit {background-color: #333;
-                           color: #00FF00;
+        """QPlainTextEdit {background-color: #404040;
+                           color: #CCFFE5;
                            font-family: Courier;}""")
         self.plainTextEdit_manualEnter.setStyleSheet(
-        """QPlainTextEdit {background-color: #333;
-                           color: #00FF00;
+        """QPlainTextEdit {background-color: #404040;
+                           color: #C0C0C0;
                            font-family: Courier;}""")
         self.plainTextEdit_English.setStyleSheet(
-        """QPlainTextEdit {background-color: #333;
-                           color: #00FF00;
-                           font-family: Courier;}""") #text-decoration: underline;
-        
+        """QPlainTextEdit {background-color: #404040;
+                           color: #C0C0C0;
+                           font-family: Courier;}""") #text-decoration: underline; # green color: 00FF00
         
         self.displayWindow(Lang.Chinese)
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
-
+        
     def openFile(self, lang):
         _fileName, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Open File')
         if _fileName:
@@ -115,12 +118,23 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if repaint:
             self.lineEdit_English_Line_Number.setText('' if n==0 else str(n))
 
-        
+    def manualEnterAction(self):
+        text = self.plainTextEdit_manualEnter.toPlainText()
+        if len(text) > 0:
+            if text[len(text)-1] == '\n':
+                self.plainTextEdit_manualEnter.setPlainText(text.strip())
+                self.plainTextEdit_manualEnter.moveCursor(QTextCursor.End, QTextCursor.MoveAnchor);
+                self.submitButtonAction()
+                #if self.plainTextEdit_English.isVisible():
+                #
+                #else:
+
+
     def submitButtonAction(self):
         if self.plainTextEdit_English.isVisible():
             self.plainTextEdit_manualEnter.clear()
-            self.plainTextEdit_English.hide()
             self.plainTextEdit_manualEnter.setFocus(1)
+            self.plainTextEdit_English.hide()
         else:
             self.plainTextEdit_English.setPlainText(self.englishDoclist[self.cfg.getDocLineNum(Lang.English)])
             self.plainTextEdit_English.show()
