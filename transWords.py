@@ -1,12 +1,14 @@
 import sys
 import os
 import json
+import time
 from PyQt5 import QtWidgets, uic
 from MainWindow import Ui_MainWindow
 from TwCommon import Lang
 from ConfigOperation import ConfigOperation
 from PyQt5.QtGui import QIcon
 from PyQt5.QtGui import QTextCursor
+
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, obj=None, **kwargs):
@@ -36,8 +38,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit_Chinese_File.setText(self.cfg.getDocPath(Lang.Chinese))
         self.lineEdit_English_File.setText(self.cfg.getDocPath(Lang.English))
         self.plainTextEdit_Chinese.setStyleSheet(
-        """QPlainTextEdit {background-color: #CCFFE5;
-                           color: #404040;
+        """QPlainTextEdit {background-color: #404040;
+                           color: #C0C0C0;
                            font-family: Courier;}""")
         self.plainTextEdit_CN_line.setStyleSheet(
         """QPlainTextEdit {background-color: #404040;
@@ -50,11 +52,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.plainTextEdit_English.setStyleSheet(
         """QPlainTextEdit {background-color: #404040;
                            color: #C0C0C0;
-                           font-family: Courier;}""") #text-decoration: underline; # green color: 00FF00
-        
+                           font-family: Courier;}""") #text-decoration: underline; # green color: 00FF00        
         self.displayWindow(Lang.Chinese)
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
-        
+
     def openFile(self, lang):
         _fileName, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Open File')
         if _fileName:
@@ -95,6 +96,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         if lang == Lang.Chinese:
             self.plainTextEdit_Chinese.setPlainText(text)
+            self.plainTextEdit_Chinese.verticalScrollBar().setValue(self.cfg.getDocLineNum(Lang.English))
         elif lang == Lang.English:
             self.plainTextEdit_English.setPlainText(text)
 
@@ -114,6 +116,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             else:
                 repaint = False
         self.cfg.setDocLineNum(n, Lang.English)
+        self.plainTextEdit_Chinese.verticalScrollBar().setValue(self.cfg.getDocLineNum(Lang.English))
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
         if repaint:
             self.lineEdit_English_Line_Number.setText('' if n==0 else str(n))
@@ -144,7 +147,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.plainTextEdit_English.hide()
         self.lineEdit_English_Line_Number.setText(str(self.cfg.getDocLineNum(Lang.English)))
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
-        
+        self.plainTextEdit_Chinese.verticalScrollBar().setValue(self.cfg.getDocLineNum(Lang.English))
+
     def nextButtonAction(self):
         num = self.cfg.getDocLineNum(Lang.English) + 1
         if num < len(self.englishDoclist):
@@ -154,6 +158,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit_English_Line_Number.setText(str(self.cfg.getDocLineNum(Lang.English)))
         self.plainTextEdit_CN_line.setPlainText(self.ChineseDoclist[self.cfg.getDocLineNum(Lang.English)])
         self.plainTextEdit_manualEnter.setFocus(1)
+        self.plainTextEdit_Chinese.verticalScrollBar().setValue(self.cfg.getDocLineNum(Lang.English))
 
     def loadDocToList(self, lang): 
         if os.path.isfile(self.cfg.getDocPath(lang)):
@@ -176,4 +181,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = MainWindow()
     window.show()
+    window.plainTextEdit_Chinese.verticalScrollBar().setValue(window.cfg.getDocLineNum(Lang.English))
+
     app.exec()
