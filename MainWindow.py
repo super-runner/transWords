@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         self.lineEdit_English_Line_Number.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_English_Line_Number.setObjectName("lineEdit_English_Line_Number")
         self.plainTextEdit_Chinese = QtWidgets.QPlainTextEdit(self.Practice)
-        self.plainTextEdit_Chinese.setGeometry(QtCore.QRect(10, 160, 861, 401))
+        self.plainTextEdit_Chinese.setGeometry(QtCore.QRect(10, 160, 861, 411))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.plainTextEdit_Chinese.setFont(font)
